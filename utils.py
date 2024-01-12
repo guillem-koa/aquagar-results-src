@@ -10,7 +10,7 @@ from matplotlib.backends.backend_agg import FigureCanvasAgg
 
 
 def get_plateid_from_image(img, expected_digits):
-    model_path = 'models/detect-plateid.pt'
+    model_path = '/Users/guillemcobos/Documents/GitHub/aquagar-results-src/models/detect-plateid.pt'
     model = YOLO(model_path)
 
     results = model(img, conf = 0.014, iou = 0.7)
@@ -115,7 +115,7 @@ def apply_circle_mask(img):
 def get_six_agar_predictions(input_image):
 
     # Locate each agar (to crop later and perform pathogen prediction on each crop!)
-    modelAgarsWells = YOLO('models/model_agars_wells.pt')
+    modelAgarsWells = YOLO('/Users/guillemcobos/Documents/GitHub/aquagar-results-src/models/model_agars_wells.pt')
 
     # Prediction step: We just want class = 0 (which is 'agar'). We don't want any 'wells' here!
     resultsAgars = modelAgarsWells.predict(input_image, classes = 0)[0]
@@ -130,7 +130,7 @@ def get_six_agar_predictions(input_image):
     allBoxesSorted = allBoxes[sorted_indices]
 
     # Perform pathogen prediction on all the agars
-    modelColonies = YOLO('models/micro_colony_counting.pt')
+    modelColonies = YOLO('/Users/guillemcobos/Documents/GitHub/aquagar-results-src/models/micro_colony_counting.pt')
     pred_on_all_agars = []
     pred_images = []
     for box in allBoxesSorted:

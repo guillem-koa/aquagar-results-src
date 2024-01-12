@@ -5,12 +5,12 @@ import os
 from utils import *
 
 # On which Aquagar will this run?
-AA_serials = ['AA-202310-001']
+AA_serials = ['AA-202310-002']
 
 for AA_serial in AA_serials:
 
     # Define path of an Aquagar machine
-    AA_machine_folder_path = f'../{AA_serial}'
+    AA_machine_folder_path = f'/Users/guillemcobos/Library/CloudStorage/GoogleDrive-guillem.cobos@koabiotech.com/.shortcut-targets-by-id/1UQ_YnLRmoAqhCue-qXYNP9QhYorsiAxS/KOA Biotech/08. PRODUCTS/AQUAGAR/{AA_serial}'
 
     # Get information about Muestras (read muestras excel)
     AA_muestras_excel_path = os.path.join(AA_machine_folder_path, [item for item in os.listdir(AA_machine_folder_path) if 'Muestras.xlsx' in item][0])
